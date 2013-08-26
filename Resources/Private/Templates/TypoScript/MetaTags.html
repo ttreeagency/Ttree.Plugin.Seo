@@ -1,9 +1,9 @@
-{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}{namespace m=TYPO3\Media\ViewHelpers}
 		<f:if condition="{metaAuthor}"><meta name="author" content="{metaAuthor}"/></f:if>
 		<f:if condition="{metaDescription}"><meta name="description" content="{metaDescription}"/></f:if>
 		<f:if condition="{ogTitle}"><meta property="og:title" content="{ogTitle}"/></f:if>
 		<f:if condition="{ogType}"><meta property="og:type" content="{ogType}"/></f:if>
-		<f:if condition="{ogImage}"><meta property="og:image" content="{ogImage}"/></f:if>
+		<f:if condition="{ogImage}"><meta property="og:image" content="{m:uri.image(image:ogImage)}"/></f:if>
 		<f:if condition="{ogUrl}"><meta property="og:url" content="{ogUrl}"/></f:if>
 		<f:if condition="{ogDescription}"><meta property="og:descrition" content="{ogDescription}"/></f:if>
 		<f:if condition="{fbAdmins}"><meta property="fb:admins" content="{fbAdmins}"/></f:if>
@@ -11,4 +11,4 @@
 		<f:if condition="{twitterUrl}"><meta name="twitter:url" content="{twitterUrl}"/></f:if>
 		<f:if condition="{twitterTitle}"><meta name="twitter:title" content="{twitterTitle}"/></f:if>
 		<f:if condition="{twitterDescription}"><meta name="twitter:description" content="{twitterDescription}"/></f:if>
-		<f:if condition="{twitterImage}"><meta name="twitter:image" content="{twitterImage}"/></f:if>
+		<f:if condition="{twitterImage}"><meta name="twitter:image" content="{m:uri.image(image:twitterImage)}"/></f:if>
