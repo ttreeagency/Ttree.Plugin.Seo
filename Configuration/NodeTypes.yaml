@@ -3,19 +3,18 @@
     inspector:
       groups:
         metaOptions:
-          label: 'Meta Tags'
+          label: 'SEO: Meta Tags'
           priority: 2
+        openGraphOptions:
+          label: 'SEO: OpenGraph'
+          priority: 3
+        twitterOptions:
+          label: 'SEO: Twitter'
   properties:
-    author:
+    metaAuthor:
       type: string
       ui:
         label: 'Author'
-        inspector:
-          group: metaOptions
-    metaKeywords:
-      type: string
-      ui:
-        label: 'Keywords'
         inspector:
           group: metaOptions
     metaDescription:
@@ -24,3 +23,87 @@
         label: 'Description'
         inspector:
           group: metaOptions
+    ogTitle:
+      type: string
+      ui:
+        label: 'Title'
+        inspector:
+          group: openGraphOptions
+    ogType:
+      type: string
+      ui:
+        label: 'Type'
+        inspector:
+          group: openGraphOptions
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Article'
+            values:
+              article:
+                label: 'Article'
+              place:
+                label: 'Place'
+              website:
+                label: 'Website'
+              book:
+                label: 'Book'
+              profile:
+                label: 'Profile'
+              object:
+                label: 'Object'
+              product:
+                label: 'Product'
+              event:
+                label: 'Event'
+    ogImage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
+        inspector:
+          group: openGraphOptions
+    ogDescription:
+      type: string
+      ui:
+        label: 'Description'
+        inspector:
+          group: openGraphOptions
+    fbAdmins:
+      type: string
+      ui:
+        label: 'Facebook Admins'
+        inspector:
+          group: openGraphOptions
+    twitterCard:
+      type: string
+      ui:
+        label: 'Card'
+        inspector:
+          group: twitterOptions
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'summary'
+            values:
+              summary:
+                label: 'Summary'
+              photo:
+                label: 'Photo'
+              player:
+                label: 'Player'
+    twitterTitle:
+      type: string
+      ui:
+        label: 'Title'
+        inspector:
+          group: twitterOptions
+    twitterDescription:
+      type: string
+      ui:
+        label: 'Description'
+        inspector:
+          group: twitterOptions
+    twitterImage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
+        inspector:
+          group: twitterOptions

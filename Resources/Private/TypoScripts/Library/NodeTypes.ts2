@@ -1,7 +1,21 @@
-prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.Neos:Template)
-prototype(Ttree.Plugin.Seo:MetaTags) {
-	templatePath      = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
-	metaAuthor        = ${q(node).parents().add(q(node)).filter('[author]').last().property('author')}
-	metaKeywords      = ${q(node).parents().add(q(node)).filter('[metaKeywords]').last().property('metaKeywords')}
-	metaDescritpion   = ${q(node).parents().add(q(node)).filter('[metaDescritpion]').last().property('metaDescritpion')}
+prototype(Ttree.Plugin.Seo:MetaTagsPlugin) < prototype(TYPO3.Neos:Template)
+prototype(Ttree.Plugin.Seo:MetaTagsPlugin) {
+	templatePath       = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
+
+	metaAuthor         = ${q(node).parents().add(q(node)).filter('[metaAuthor]').last().property('metaAuthor')}
+	metaDescription    = ${q(node).parents().add(q(node)).filter('[metaDescription]').last().property('metaDescription')}
+
+	ogTitle            = ${q(node).property('ogTitle') ? q(node).property('ogTitle') : q(node).property('title')}
+	ogType             = ${q(node).parents().add(q(node)).filter('[ogType]').last().property('ogType')}
+	ogImage            = ${q(node).parents().add(q(node)).filter('[ogImage]').last().property('ogImage')}
+	ogUrl              = "http://www.perdu.com"
+	ogDescription      = ${q(node).parents().add(q(node)).filter('[ogDescription]').last().property('ogDescription')}
+
+	fbAdmins           = ${q(node).parents().add(q(node)).filter('[fbAdmins]').last().property('fbAdmins')}
+
+	twitterCard        = ${q(node).parents().add(q(node)).filter('[twitterCard]').last().property('twitterCard')}
+	twitterUrl         = "http://www.perdu.com"
+	twitterTitle       = ${q(node).parents().add(q(node)).filter('[twitterTitle]').last().property('twitterTitle')}
+	twitterDescription = ${q(node).parents().add(q(node)).filter('[twitterDescription]').last().property('twitterDescription')}
+	twitterImage       = ${q(node).parents().add(q(node)).filter('[twitterImage]').last().property('twitterImage')}
 }
