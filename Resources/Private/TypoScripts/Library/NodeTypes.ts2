@@ -1,0 +1,7 @@
+prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.Neos:Template)
+prototype(Ttree.Plugin.Seo:MetaTags) {
+	templatePath      = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
+	metaAuthor        = ${q(node).parents().add(q(node)).filter('[author]').last().property('author')}
+	metaKeywords      = ${q(node).parents().add(q(node)).filter('[metaKeywords]').last().property('metaKeywords')}
+	metaDescritpion   = ${q(node).parents().add(q(node)).filter('[metaDescritpion]').last().property('metaDescritpion')}
+}

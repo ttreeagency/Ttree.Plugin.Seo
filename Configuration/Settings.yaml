@@ -1,0 +1,7 @@
+Ttree:
+  Plugin:
+    Seo:
+      default:
+        author: John Doe
+        description: Default page description
+        keywords: "Keyword #1, Keyword #2"

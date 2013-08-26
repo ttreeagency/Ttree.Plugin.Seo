@@ -1,0 +1,26 @@
+'TYPO3.Neos:Document':
+  ui:
+    inspector:
+      groups:
+        metaOptions:
+          label: 'Meta Tags'
+          priority: 2
+  properties:
+    author:
+      type: string
+      ui:
+        label: 'Author'
+        inspector:
+          group: metaOptions
+    metaKeywords:
+      type: string
+      ui:
+        label: 'Keywords'
+        inspector:
+          group: metaOptions
+    metaDescription:
+      type: string
+      ui:
+        label: 'Description'
+        inspector:
+          group: metaOptions
