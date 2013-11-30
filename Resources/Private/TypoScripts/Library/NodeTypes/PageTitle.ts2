@@ -1,0 +1,13 @@
+prototype(Ttree.Plugin.Seo:PageTitleSuffix) < prototype(TYPO3.TypoScript:Value) {
+  	value = 'ttree sàrl - Agence Web - Expert TYPO3 CMS, Flow et Neos'
+}
+
+prototype(Ttree.Plugin.Seo:GenericTitle) < prototype(TYPO3.TypoScript:Value) {
+  	value = ${q(node).property('metaTitle') ? q(node).property('metaTitle') : q(node).property('title')}
+}
+
+prototype(Ttree.Plugin.Seo:PageTitle) < prototype(TYPO3.TypoScript:Value) {
+  	pageTitle = Ttree.Plugin.Seo:GenericTitle
+  	titleSuffix = Ttree.Plugin.Seo:PageTitleSuffix
+  	value = ${this.pageTitle + " - " + this.titleSuffix}
+}

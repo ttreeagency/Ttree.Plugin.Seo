@@ -3,18 +3,18 @@
     inspector:
       groups:
         metaOptions:
-          label: 'SEO: Meta Tags'
+          label: 'SEO / Generic'
           priority: 2
         openGraphOptions:
-          label: 'SEO: OpenGraph'
+          label: 'SEO / OpenGraph'
           priority: 3
         twitterOptions:
-          label: 'SEO: Twitter'
+          label: 'SEO / Twitter'
   properties:
-    metaAuthor:
+    metaTitle:
       type: string
       ui:
-        label: 'Author'
+        label: 'Title'
         inspector:
           group: metaOptions
     metaDescription:
@@ -23,13 +23,19 @@
         label: 'Description'
         inspector:
           group: metaOptions
-    ogTitle:
+    metaAuthor:
       type: string
       ui:
-        label: 'Title'
+        label: 'Author'
+        inspector:
+          group: metaOptions
+    twitter:
+      type: boolean
+      ui:
+        label: 'Enable OpenGraph?'
         inspector:
           group: openGraphOptions
-    ogType:
+    opengraphType:
       type: string
       ui:
         label: 'Type'
@@ -55,28 +61,40 @@
                 label: 'Product'
               event:
                 label: 'Event'
-    ogImage:
-      type: TYPO3\Media\Domain\Model\ImageVariant
+    opengraphTitle:
+      type: string
       ui:
-        label: 'Image'
+        label: 'Title'
         inspector:
           group: openGraphOptions
-    ogDescription:
+    opengraphDescription:
       type: string
       ui:
         label: 'Description'
         inspector:
           group: openGraphOptions
-    fbAdmins:
+    opengraphImage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
+        inspector:
+          group: openGraphOptions
+    facebookAdmins:
       type: string
       ui:
         label: 'Facebook Admins'
         inspector:
           group: openGraphOptions
+    twitter:
+      type: boolean
+      ui:
+        label: 'Enable Twitter Card?'
+        inspector:
+          group: twitterOptions
     twitterCard:
       type: string
       ui:
-        label: 'Card'
+        label: 'Card Type'
         inspector:
           group: twitterOptions
           editor: Content/Inspector/Editors/SelectBoxEditor
@@ -107,3 +125,19 @@
         label: 'Image'
         inspector:
           group: twitterOptions
+    twitterSite:
+      type: string
+      ui:
+        label: 'Site'
+        inspector:
+          group: twitterOptions
+          editorOptions:
+            placeholder: '@ttreeagency'
+    twitterCreator:
+      type: string
+      ui:
+        label: 'Creator'
+        inspector:
+          group: twitterOptions
+          editorOptions:
+            placeholder: '@dfeyer'

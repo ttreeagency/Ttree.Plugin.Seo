@@ -1,0 +1,13 @@
+# DocumentTeaser Implementation
+#
+prototype(Ttree.Plugin.Seo:DocumentTeaser) >
+prototype(Ttree.Plugin.Seo:DocumentTeaser) {
+	@class = 'Ttree\\Plugin\\Seo\\TypoScript\\DocumentTeaserImplementation'
+
+	nodeTypesFilter = '[instanceof TYPO3.Neos.NodeTypes:Text]'
+	maximumCharacters = 600
+	suffix = '...'
+
+	documentNode = ${documentNode}
+	contentNodes = ${q(documentNode).children('main').children(this.nodeTypesFilter)}
+}
