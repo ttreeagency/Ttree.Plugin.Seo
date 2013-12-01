@@ -1,5 +1,5 @@
-A SEO plugin for TYPO3 Neos by ttree agency
-===========================================
+A SEO plugin for TYPO3 Neos
+===========================
 
 This package for the Content Management System TYPO3 Neos offer some nice feature for search engine optimizations (SEO).
 
@@ -87,8 +87,8 @@ How to force the rendering of a Twitter Card
 In some case, like for a blog post, you need the force the rendering of the Twitter Card. For this to work you need a specific Node Type for this kind of Document.
 You can use this TS2 snippet to force the rendering of the Twitter Card::
 
-	prototype(Ttree.Plugin.Seo:MetaTags) {
-		twitter.@process.event = ${q(documentNode).is('[instanceof Ttree.Plugin.Blog:Blog]') ? TRUE : value}
+	prototype(Ttree.Plugin.Seo:TwitterCard) {
+		hasTwitterCard.@process.event = ${q(documentNode).is('[instanceof Ttree.Plugin.Blog:Blog]') ? TRUE : value}
 	}
 
 How to force the content for the property Site and Creator
@@ -96,7 +96,7 @@ How to force the content for the property Site and Creator
 
 ::
 
-	prototype(Ttree.Plugin.Seo:MetaTags) {
+	prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
 		twitterSite = '@ttreeagency'
 		twitterCreator = '@dfeyer'
 	}

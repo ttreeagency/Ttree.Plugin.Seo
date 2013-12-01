@@ -1,0 +1,8 @@
+{namespace m=TYPO3\Media\ViewHelpers}{namespace neos=TYPO3\Neos\ViewHelpers}{namespace ts=TYPO3\TypoScript\ViewHelpers}
+		<meta name="twitter:card" content="{twitterCard}"/>
+		<f:if condition="{twitterTitle}"><meta name="twitter:title" content="{twitterTitle}"/></f:if>
+		<meta name="twitter:url" content="{neos:uri.node(node:node,absolute:1)}{twitterUrlSuffix}"/>
+		<f:if condition="{twitterDescription}"><meta name="twitter:description" content="{twitterDescription}"/></f:if>
+		<f:if condition="{twitterImage}"><meta name="twitter:image" content="{m:uri.image(image:twitterImage,maximumWidth:imageWidth,maximumHeight:imageHeight,allowCropping:allowCropping)}"/></f:if>
+		<f:if condition="{twitterSite}"><meta name="twitter:site" content="{twitterSite}"/></f:if>
+		<f:if condition="{twitterCreator}"><meta name="twitter:creator" content="{twitterCreator}"/></f:if>

@@ -1,43 +1,36 @@
 include: NodeTypes/DocumentTeaser.ts2
 include: NodeTypes/PageTitle.ts2
+include: NodeTypes/TwitterCard.ts2
 
-prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.Neos:Template)
+prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.TypoScript:Array)
 prototype(Ttree.Plugin.Seo:MetaTags) {
-	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
+	metaTags = TYPO3.Neos:Template {
+		templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
 
-	parentNodes = ${q(node).parents().add(q(node))}
-	imageWidth = 240
-	imageHeight = 240
+		parentNodes = ${q(node).parents().add(q(node))}
+		imageWidth = 240
+		imageHeight = 240
 
-	genericTitle = Ttree.Plugin.Seo:GenericTitle
-	genericAuthor = ${this.parentNodes.filter('[metaAuthor]').last().property('metaAuthor')}
-	metaDescription = ${this.parentNodes.filter('[metaDescription]').last().property('metaDescription')}
+		title = Ttree.Plugin.Seo:GenericTitle
+		author = ${this.parentNodes.filter('[metaAuthor]').last().property('metaAuthor')}
+		metaDescription = ${this.parentNodes.filter('[metaDescription]').last().property('metaDescription')}
 
-	documentTeaser = Ttree.Plugin.Seo:DocumentTeaser {
-		maximumCharacters = 300
+		documentTeaser = Ttree.Plugin.Seo:DocumentTeaser {
+			maximumCharacters = 300
+		}
+
+		description = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
+		description.@process.event = ${q(node).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
+		description.@process.blog = ${q(node).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? this.documentTeaser : value}
+
+		opengraphTitle = ${q(node).property('opengraphTitle') ? q(node).property('opengraphTitle') : this.title}
+		opengraphType = ${q(node).property('opengraphType') ? q(node).property('opengraphType') : ''}
+		opengraphImage = ${q(node).property('opengraphImage') ? q(node).property('opengraphImage') : ''}
+		opengraphDescription = ${q(node).property('opengraphDescription') ? q(node).property('opengraphDescription') : this.description}
+		opengraphUrlSuffix = "?referer=opengraph"
+
+		facebookAdmins = ${q(node).parents().add(q(node)).filter('[facebookAdmins]').last().property('facebookAdmins')}
 	}
 
-	genericDescription = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
-	genericDescription.@process.event = ${q(documentNode).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
-	genericDescription.@process.blog = ${q(documentNode).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? this.documentTeaser : value}
-
-	opengraphTitle = ${q(node).property('opengraphTitle') ? q(node).property('opengraphTitle') : this.genericTitle}
-	opengraphType = ${q(node).property('opengraphType') ? q(node).property('opengraphType') : ''}
-	opengraphImage = ${q(node).property('opengraphImage') ? q(node).property('opengraphImage') : ''}
-	opengraphDescription = ${q(node).property('opengraphDescription') ? q(node).property('opengraphDescription') : this.genericDescription}
-	opengraphUrlSuffix = "?ref=opengraph"
-
-	facebookAdmins = ${q(node).parents().add(q(node)).filter('[facebookAdmins]').last().property('facebookAdmins')}
-
-	twitter = ${q(node).property('twitter')}
-	twitter.@process.event = ${q(documentNode).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? TRUE : value}
-	twitter.@process.blog = ${q(documentNode).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? TRUE : value}
-
-	twitterCard = ${q(node).property('twitterCard') ? q(node).property('twitterCard') : 'summary'}
-	twitterSite = ${q(node).property('twitterSite') ? q(node).property('twitterSite') : '@site'}
-	twitterCreator = ${q(node).property('twitterCreator') ? q(node).property('twitterCreator') : '@creator'}
-	twitterTitle = ${q(node).property('twitterTitle') ? q(node).property('twitterTitle') : this.genericTitle}
-	twitterDescription = ${q(node).property('twitterDescription') ? q(node).property('twitterDescription') : this.genericDescription}
-	twitterImage = ${q(node).property('twitterImage') ? q(node).property('twitterImage') : ''}
-	twitterUrlSuffix = "?ref=twitter"
+	twitterCard = Ttree.Plugin.Seo:TwitterCard
 }

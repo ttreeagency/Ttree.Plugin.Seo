@@ -93,20 +93,30 @@
           group: twitterOptions
     twitterCard:
       type: string
+      defaultValue: 'summary'
       ui:
         label: 'Card Type'
         inspector:
           group: twitterOptions
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
-            placeholder: 'summary'
             values:
               summary:
                 label: 'Summary'
+              summaryLarge:
+                label: 'Summary with Large Image'
               photo:
                 label: 'Photo'
+              gallery:
+                label: 'Gallery'
+              app:
+                label: 'App Card'
+              appInstalls:
+                label: 'App Installs and Deep-Linking:'
               player:
                 label: 'Player'
+              product:
+                label: 'Product'
     twitterTitle:
       type: string
       ui:

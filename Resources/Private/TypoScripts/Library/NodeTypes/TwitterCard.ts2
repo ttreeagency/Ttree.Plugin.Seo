@@ -1,0 +1,105 @@
+prototype(Ttree.Plugin.Seo:TwitterCard) < prototype(TYPO3.TypoScript:Case) {
+	hasTwitterCard = ${q(node).property('twitter') ? TRUE : FALSE}
+
+	@override.hasTwitterCard = ${this.hasTwitterCard}
+	@ignoreProperties = ${['hasTwitterCard']}
+
+	summary {
+		condition = ${q(node).property('twitterCard') == 'summary' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardSummary'
+	}
+	summaryLarge {
+		condition = ${q(node).property('twitterCard') == 'summaryLarge' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardSummaryLarge'
+	}
+	photo {
+		condition = ${q(node).property('twitterCard') == 'photo' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardPhoto'
+	}
+	gallery {
+		condition = ${q(node).property('twitterCard') == 'gallery' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardGallery'
+	}
+	app {
+		condition = ${q(node).property('twitterCard') == 'app' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardApp'
+	}
+	appInstalls {
+		condition = ${q(node).property('twitterCard') == 'appInstalls' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardAppInstalls'
+	}
+	player {
+		condition = ${q(node).property('twitterCard') == 'player' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardPlayer'
+	}
+	product {
+		condition = ${q(node).property('twitterCard') == 'product' && hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardProduct'
+	}
+	default {
+		condition = ${hasTwitterCard}
+		type = 'Ttree.Plugin.Seo:TwitterCardSummary'
+		@position = 'end'
+	}
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardAbstract) < prototype(TYPO3.Neos:Template) {
+	genericTitle = Ttree.Plugin.Seo:GenericTitle
+	genericDescription = Ttree.Plugin.Seo:DocumentTeaser {
+		maximumCharacters = 300
+	}
+
+	imageWidth = 120
+	imageHeight = 120
+
+	allowCropping = TRUE
+
+	twitterCard = ${q(node).property('twitterCard') ? q(node).property('twitterCard') : 'summary'}
+
+	twitterSite = ${q(node).property('twitterSite') ? q(node).property('twitterSite') : '@site'}
+	twitterCreator = ${q(node).property('twitterCreator') ? q(node).property('twitterCreator') : '@creator'}
+
+	twitterTitle = ${q(node).property('twitterTitle') ? q(node).property('twitterTitle') : this.genericTitle}
+	twitterDescription = ${q(node).property('twitterDescription') ? q(node).property('twitterDescription') : this.genericDescription}
+
+	twitterImage = ${q(node).property('twitterImage') ? q(node).property('twitterImage') : ''}
+
+	twitterUrlSuffix = "?referer=twitter"
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardSummary) < prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
+	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/TwitterCard/Summary.html'
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardSummaryLarge) < prototype(Ttree.Plugin.Seo:TwitterCardSummary) {
+	imageWidth = 280
+	imageHeight = 150
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardPhoto) < prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
+	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/TwitterCard/Photo.html'
+
+	imageWidth = 1200
+	imageHeight = 1200
+	allowCropping = FALSE
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardGallery) < prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
+	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/TwitterCard/Unavailable.html'
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardApp) < prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
+	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/TwitterCard/Unavailable.html'
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardAppInstalls) < prototype(Ttree.Plugin.Seo:TwitterCardApp) {
+
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardPlayer) < prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
+	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/TwitterCard/Unavailable.html'
+}
+
+prototype(Ttree.Plugin.Seo:TwitterCardProduct) < prototype(Ttree.Plugin.Seo:TwitterCardAbstract) {
+	templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/TwitterCard/Unavailable.html'
+}
