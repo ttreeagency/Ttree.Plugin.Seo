@@ -2,7 +2,7 @@
     "name": "ttree/plugin-seo",
     "type": "typo3-flow-plugin",
     "description": "SEO Plugin for TYPO3 Neos",
-    "version": null,
+    "version": "0.1",
     "license": ["MIT"],
     "require": {
         "typo3/flow":">=2.0.0",
