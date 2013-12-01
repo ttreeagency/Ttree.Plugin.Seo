@@ -9,7 +9,7 @@
           label: 'SEO / OpenGraph'
           priority: 3
         twitterOptions:
-          label: 'SEO / Twitter'
+          label: 'SEO / Twitter Card'
   properties:
     metaTitle:
       type: string

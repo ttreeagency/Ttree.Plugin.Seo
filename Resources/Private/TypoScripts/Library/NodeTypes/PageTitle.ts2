@@ -1,5 +1,5 @@
-prototype(Ttree.Plugin.Seo:PageTitleSuffix) < prototype(TYPO3.TypoScript:Value) {
-  	value = 'ttree sàrl - Agence Web - Expert TYPO3 CMS, Flow et Neos'
+prototype(Ttree.Plugin.Seo:StaticPageTitle) < prototype(TYPO3.TypoScript:Value) {
+  	value = 'your company - fixed suffix'
 }
 
 prototype(Ttree.Plugin.Seo:GenericTitle) < prototype(TYPO3.TypoScript:Value) {
@@ -8,6 +8,10 @@ prototype(Ttree.Plugin.Seo:GenericTitle) < prototype(TYPO3.TypoScript:Value) {
 
 prototype(Ttree.Plugin.Seo:PageTitle) < prototype(TYPO3.TypoScript:Value) {
   	pageTitle = Ttree.Plugin.Seo:GenericTitle
-  	titleSuffix = Ttree.Plugin.Seo:PageTitleSuffix
-  	value = ${this.pageTitle + " - " + this.titleSuffix}
+  	staticTitle = Ttree.Plugin.Seo:StaticPageTitle
+  	value = ${this.pageTitle + " - " + this.staticTitle}
+  	@process.titleWrap {
+  		expression = ${"<title>" + value + "</title>"}
+  		@position = 'end'
+  	}
 }

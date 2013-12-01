@@ -34,8 +34,8 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 	twitter.@process.blog = ${q(documentNode).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? TRUE : value}
 
 	twitterCard = ${q(node).property('twitterCard') ? q(node).property('twitterCard') : 'summary'}
-	twitterSite = ${q(node).property('twitterSite') ? q(node).property('twitterSite') : '@ttreeagency'}
-	twitterCreator = ${q(node).property('twitterCreator') ? q(node).property('twitterCreator') : '@dfeyer'}
+	twitterSite = ${q(node).property('twitterSite') ? q(node).property('twitterSite') : '@site'}
+	twitterCreator = ${q(node).property('twitterCreator') ? q(node).property('twitterCreator') : '@creator'}
 	twitterTitle = ${q(node).property('twitterTitle') ? q(node).property('twitterTitle') : this.genericTitle}
 	twitterDescription = ${q(node).property('twitterDescription') ? q(node).property('twitterDescription') : this.genericDescription}
 	twitterImage = ${q(node).property('twitterImage') ? q(node).property('twitterImage') : ''}
