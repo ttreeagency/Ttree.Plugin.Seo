@@ -8,6 +8,7 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 		templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
 
 		parentNodes = ${q(node).parents().add(q(node))}
+		defaultKeywords = ''
 		imageWidth = 240
 		imageHeight = 240
 
@@ -24,6 +25,8 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 		description = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
 		description.@process.event = ${q(node).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
 		description.@process.blog = ${q(node).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? this.documentTeaser : value}
+
+		keywords = ${q(node).property('metaKeywords') ? q(node).property('metaKeywords') : this.defaultKeywords}
 
 		opengraphTitle = ${q(node).property('opengraphTitle') ? q(node).property('opengraphTitle') : this.title}
 		opengraphType = ${q(node).property('opengraphType') ? q(node).property('opengraphType') : ''}

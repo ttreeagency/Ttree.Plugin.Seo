@@ -23,6 +23,12 @@
         label: 'Description'
         inspector:
           group: metaOptions
+    metaKeywords:
+      type: string
+      ui:
+        label: 'Keywords'
+        inspector:
+          group: metaOptions
     metaAuthor:
       type: string
       ui:

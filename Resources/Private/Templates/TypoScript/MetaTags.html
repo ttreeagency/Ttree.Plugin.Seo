@@ -1,6 +1,7 @@
 {namespace m=TYPO3\Media\ViewHelpers}{namespace neos=TYPO3\Neos\ViewHelpers}{namespace ts=TYPO3\TypoScript\ViewHelpers}
 		<f:if condition="{author}"><meta name="author" content="{author}"/></f:if>
 		<f:if condition="{description}"><meta name="description" content="{description}"/></f:if>
+		<f:if condition="{keywords}"><meta name="keywords" content="{keywords}"/></f:if>
 		<f:if condition="{opengraphTitle}"><meta property="og:title" content="{opengraphTitle}"/></f:if>
 		<meta property="og:url" content="{neos:uri.node(node:node,absolute:1)}{opengraphUrlSuffix}"/>
 		<f:if condition="{opengraphDescription}"><meta property="og:descrition" content="{opengraphDescription}"/></f:if>
