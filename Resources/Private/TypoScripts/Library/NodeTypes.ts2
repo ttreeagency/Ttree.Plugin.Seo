@@ -2,15 +2,63 @@ include: NodeTypes/DocumentTeaser.ts2
 include: NodeTypes/PageTitle.ts2
 include: NodeTypes/TwitterCard.ts2
 
+prototype(Ttree.Plugin.Seo:MetaTag) < prototype(TYPO3.TypoScript:Tag) {
+	defaultKeywords = ''
+
+	parentNodes = ${q(documentNode).parents().add(q(documentNode))}
+
+	documentTeaser = Ttree.Plugin.Seo:DocumentTeaser {
+		maximumCharacters = 300
+	}
+
+	tagName = 'meta'
+	selfClosingTag = TRUE
+
+	name = ''
+	property = ''
+	content = ''
+
+	@override.name = ${this.name}
+	@override.property = ${this.property}
+	@override.content = ${this.content}
+
+	attributes {
+		name = ${name}
+		property = ${property}
+		content = ${content}
+	}
+
+	#@process.render {
+	#	expression = ${this.content ? value : ''}
+	#	@position = 'after wrap'
+	#}
+}
+
+prototype(Ttree.Plugin.Seo:MetaTagTitle) < prototype(Ttree.Plugin.Seo:MetaTag) {
+	title = Ttree.Plugin.Seo:GenericTitle
+}
+
+prototype(Ttree.Plugin.Seo:MetaTagDescription) < prototype(Ttree.Plugin.Seo:MetaTag) {
+	name = 'description'
+
+	metaDescription = ${this.parentNodes.filter('[metaDescription]').last().property('metaDescription')}
+
+	description = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
+	description.@process.event = ${q(node).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
+	description.@process.blog = ${q(node).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? this.documentTeaser : value}
+}
+
 prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.TypoScript:Array)
 prototype(Ttree.Plugin.Seo:MetaTags) {
+	/*
 	metaTags = TYPO3.Neos:Template {
 		templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
 
-		parentNodes = ${q(node).parents().add(q(node))}
 		defaultKeywords = ''
 		imageWidth = 240
 		imageHeight = 240
+
+		parentNodes = ${q(node).parents().add(q(node))}
 
 		title = Ttree.Plugin.Seo:GenericTitle
 		author = ${this.parentNodes.filter('[metaAuthor]').last().property('metaAuthor')}
@@ -34,7 +82,35 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 		opengraphDescription = ${q(node).property('opengraphDescription') ? q(node).property('opengraphDescription') : this.description}
 		opengraphUrlSuffix = "?referer=opengraph"
 
-		facebookAdmins = ${q(node).parents().add(q(node)).filter('[facebookAdmins]').last().property('facebookAdmins')}
+		facebookAdmins = ${this.parentNodes.filter('[facebookAdmins]').last().property('facebookAdmins')}
+	}
+	*/
+
+	# Meta: Description
+	description = Ttree.Plugin.Seo:MetaTagDescription {
+		name = 'description'
+		content = ${this.description}
+	}
+
+	# Meta: Author
+	author = Ttree.Plugin.Seo:MetaTag {
+		name = 'author'
+		content = ${this.parentNodes.filter('[metaAuthor]').last().property('metaAuthor')}
+	}
+
+	# Meta: Keywords
+	keywords = Ttree.Plugin.Seo:MetaTag {
+		name = 'keywords'
+		content = ${q(node).property('metaKeywords') ? q(node).property('metaKeywords') : this.defaultKeywords}
+	}
+
+	# OpenGraph: Description
+	ogDescription = Ttree.Plugin.Seo:MetaTagDescription {
+		name = 'og:descrition'
+		content = ${q(node).property('opengraphDescription') ? q(node).property('opengraphDescription') : this.description}
+
+		attributes.name >
+		attributes.property = ${name}
 	}
 
 	twitterCard = Ttree.Plugin.Seo:TwitterCard
