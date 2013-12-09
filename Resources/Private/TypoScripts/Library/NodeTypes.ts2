@@ -4,7 +4,7 @@ include: NodeTypes/TwitterCard.ts2
 
 prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.TypoScript:Array)
 prototype(Ttree.Plugin.Seo:MetaTags) {
-	metaTags = TYPO3.Neos:Template {
+	metaTags = TYPO3.TypoScript:Template {
 		templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
 
 		parentNodes = ${q(node).parents().add(q(node))}

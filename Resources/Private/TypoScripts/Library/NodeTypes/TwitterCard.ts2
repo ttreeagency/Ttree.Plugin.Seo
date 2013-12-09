@@ -43,7 +43,7 @@ prototype(Ttree.Plugin.Seo:TwitterCard) < prototype(TYPO3.TypoScript:Case) {
 	}
 }
 
-prototype(Ttree.Plugin.Seo:TwitterCardAbstract) < prototype(TYPO3.Neos:Template) {
+prototype(Ttree.Plugin.Seo:TwitterCardAbstract) < prototype(TYPO3.TypoScript:Template) {
 	genericTitle = Ttree.Plugin.Seo:GenericTitle
 	genericDescription = Ttree.Plugin.Seo:DocumentTeaser {
 		maximumCharacters = 300
