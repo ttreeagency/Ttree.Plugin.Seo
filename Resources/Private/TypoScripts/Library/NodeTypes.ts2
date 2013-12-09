@@ -19,6 +19,8 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 			maximumCharacters = 300
 		}
 
+		canonicalReference = ${q(node).property('canonicalReference')}
+
 		description = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
 		description.@process.event = ${q(node).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
 		description.@process.blog = ${q(node).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? this.documentTeaser : value}

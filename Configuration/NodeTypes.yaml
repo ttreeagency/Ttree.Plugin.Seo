@@ -29,6 +29,12 @@
         label: 'Author'
         inspector:
           group: metaOptions
+    canonicalReference:
+      type: 'reference'
+      ui:
+        label: 'Canonical Reference'
+        inspector:
+          group: metaOptions
     twitter:
       type: boolean
       ui:

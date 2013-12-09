@@ -7,4 +7,4 @@
 		<f:if condition="{opengraphType}"><meta property="og:type" content="{opengraphType}"/></f:if>
 		<f:if condition="{opengraphImage}"><meta property="og:image" content="{m:uri.image(image:opengraphImage,maximumWidth:imageWidth,maximumHeight:imageHeight,allowCropping:1)}"/></f:if>
 		<f:if condition="{facebookAdmins}"><meta property="fb:admins" content="{facebookAdmins}"/></f:if>
-		{twitterCard}
+		<f:if condition="{canonicalReference}"><link rel="canonical" href="{neos:uri.node(node:canonicalReference,absolute:1)}" /></f:if>
