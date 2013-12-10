@@ -1,42 +1,5 @@
 include: NodeTypes/DocumentTeaser.ts2
 include: NodeTypes/PageTitle.ts2
+include: NodeTypes/MetaTags.ts2
 include: NodeTypes/TwitterCard.ts2
 include: Preview/GooglePreview.ts2
-
-prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.TypoScript:Array)
-prototype(Ttree.Plugin.Seo:MetaTags) {
-	metaTags = TYPO3.TypoScript:Template {
-		templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/TypoScript/MetaTags.html'
-
-		parentNodes = ${q(node).parents().add(q(node))}
-		defaultKeywords = ''
-		imageWidth = 240
-		imageHeight = 240
-
-		title = Ttree.Plugin.Seo:GenericTitle
-		author = ${this.parentNodes.filter('[metaAuthor]').last().property('metaAuthor')}
-		metaDescription = ${this.parentNodes.filter('[metaDescription]').last().property('metaDescription')}
-
-		documentTeaser = Ttree.Plugin.Seo:DocumentTeaser {
-			maximumCharacters = 300
-		}
-
-		canonicalReference = ${q(node).property('canonicalReference')}
-
-		description = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
-		description.@process.event = ${q(node).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
-		description.@process.blog = ${q(node).is('[instanceof RobertLemke.Plugin.Blog:Post]') ? this.documentTeaser : value}
-
-		keywords = ${q(node).property('metaKeywords') ? q(node).property('metaKeywords') : this.defaultKeywords}
-
-		opengraphTitle = ${q(node).property('opengraphTitle') ? q(node).property('opengraphTitle') : this.title}
-		opengraphType = ${q(node).property('opengraphType') ? q(node).property('opengraphType') : ''}
-		opengraphImage = ${q(node).property('opengraphImage') ? q(node).property('opengraphImage') : ''}
-		opengraphDescription = ${q(node).property('opengraphDescription') ? q(node).property('opengraphDescription') : this.description}
-		opengraphUrlSuffix = "?referer=opengraph"
-
-		facebookAdmins = ${q(node).parents().add(q(node)).filter('[facebookAdmins]').last().property('facebookAdmins')}
-	}
-
-	twitterCard = Ttree.Plugin.Seo:TwitterCard
-}
