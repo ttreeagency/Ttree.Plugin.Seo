@@ -6,11 +6,15 @@ prototype(Ttree.Plugin.Seo:GenericTitle) < prototype(TYPO3.TypoScript:Value) {
   	value = ${q(node).property('metaTitle') ? q(node).property('metaTitle') : q(node).property('title')}
 }
 
+prototype(Ttree.Plugin.Seo:RawPageTitle) < prototype(TYPO3.TypoScript:Value) {
+  	pageTitle = Ttree.Plugin.Seo:GenericTitle
+	staticTitle = Ttree.Plugin.Seo:StaticPageTitle
+
+	value = ${this.pageTitle + " - " + this.staticTitle}
+}
+
 prototype(Ttree.Plugin.Seo:PageTitle) < prototype(TYPO3.TypoScript:Tag) {
 	tagName = 'title'
 
-  	pageTitle = Ttree.Plugin.Seo:GenericTitle
-  	staticTitle = Ttree.Plugin.Seo:StaticPageTitle
-
-  	content = ${this.pageTitle + " - " + this.staticTitle}
+  	content = Ttree.Plugin.Seo:RawPageTitle
 }

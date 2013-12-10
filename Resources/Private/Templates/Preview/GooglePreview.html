@@ -11,7 +11,7 @@
 					<li class="g">
 						<div class="rc" data-hveid="5"><span class="altcts"></span>
 
-							<h3 class="r"><a href="{neos:uri.node(node: node, absolute:1)}">{node.properties.title}</a></h3>
+							<h3 class="r"><a href="{neos:uri.node(node: node, absolute:1)}">{title -> f:format.crop(maxCharacters: 70, append: '...')}</a></h3>
 
 							<div class="s">
 								<div>

@@ -12,5 +12,6 @@ ttreePluginSeoGoogle {
             teaser = Ttree.Plugin.Seo:DocumentTeaser {
             	maximumCharacters = 166
             }
+            title = Ttree.Plugin.Seo:RawPageTitle
         }
 }
