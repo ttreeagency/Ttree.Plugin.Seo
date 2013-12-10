@@ -1,6 +1,7 @@
 include: NodeTypes/DocumentTeaser.ts2
 include: NodeTypes/PageTitle.ts2
 include: NodeTypes/TwitterCard.ts2
+include: Preview/GooglePreview.ts2
 
 prototype(Ttree.Plugin.Seo:MetaTags) < prototype(TYPO3.TypoScript:Array)
 prototype(Ttree.Plugin.Seo:MetaTags) {

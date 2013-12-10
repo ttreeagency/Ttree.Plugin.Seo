@@ -1,0 +1,16 @@
+ttreePluginSeoGoogle = TYPO3.Neos:Page
+ttreePluginSeoGoogle {
+		head {
+			stylesheets = TYPO3.TypoScript:Template {
+				templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/Preview/GooglePreview.html'
+				sectionName = 'stylesheets'
+			}
+		}
+        body {
+            templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/Preview/GooglePreview.html'
+            sectionName = 'body'
+            teaser = Ttree.Plugin.Seo:DocumentTeaser {
+            	maximumCharacters = 166
+            }
+        }
+}

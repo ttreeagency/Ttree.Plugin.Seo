@@ -1,0 +1,32 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:section name="stylesheets">
+	<link href="../../../Public/Styles/GooglePreview.css" rel="stylesheet" media="all"/>
+</f:section>
+<f:section name="body">
+	<div class="preview-content">
+		<div class="med" id="res" role="main"><h2 class="hd">Search Results</h2>
+
+			<div id="ires">
+				<ol id="rso">
+					<li class="g">
+						<div class="rc" data-hveid="5"><span class="altcts"></span>
+
+							<h3 class="r"><a href="{neos:uri.node(node: node, absolute:1)}">{node.properties.title}</a></h3>
+
+							<div class="s">
+								<div>
+									<div class="f kv" style="white-space:nowrap"><cite class="vurls">
+										<a href="{neos:uri.node(node: node, absolute:1)}">{neos:uri.node(node: node,
+											absolute:1) -> f:format.crop(maxCharacters: 72, append: '...')}</a>
+									</cite></div>
+									<div class="f slp"></div>
+									<span class="st">{teaser -> f:format.raw()}</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</f:section>

@@ -1,0 +1,10 @@
+TYPO3:
+  Neos:
+    userInterface:
+      editPreviewModes:
+        ttreePluginSeoGoogle:
+          isEditingMode: FALSE
+          isPreviewMode: TRUE
+          typoScriptRenderingPath: 'ttreePluginSeoGoogle'
+          title: 'Google Search'
+          position: 100
