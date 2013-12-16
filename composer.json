@@ -6,7 +6,7 @@
     "license": ["MIT"],
     "require": {
         "typo3/flow":">=2.0.0",
-        "typo3/neos":">=1.0.0-alpha5"
+        "typo3/neos":">=1.0.0"
     },
     "autoload": {
         "psr-0": {
