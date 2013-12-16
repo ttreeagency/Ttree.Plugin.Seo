@@ -1,5 +1,7 @@
 include: NodeTypes/DocumentTeaser.ts2
 include: NodeTypes/PageTitle.ts2
+include: NodeTypes/RichSnippets.ts2
 include: NodeTypes/MetaTags.ts2
 include: NodeTypes/TwitterCard.ts2
+
 include: Preview/GooglePreview.ts2

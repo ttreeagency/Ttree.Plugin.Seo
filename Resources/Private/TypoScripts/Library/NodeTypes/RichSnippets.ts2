@@ -1,0 +1,15 @@
+# RichSnippets Implementation
+#
+prototype(Ttree.Plugin.Seo:RichSnippets) >
+prototype(Ttree.Plugin.Seo:RichSnippets) {
+	@class = 'Ttree\\Plugin\\Seo\\TypoScript\\RichSnippetsImplementation'
+
+	page = TYPO3.TypoScript:Case {
+		layout {
+    		@position = 'end 9997'
+    		layout = ${q(node).property('layout') != null && q(node).property('layout') != '' ? q(node).property('layout') : q(node).parents('[subpageLayout]').first().property('subpageLayout')}
+    		condition = ${this.layout != null && this.layout != ''}
+    		renderPath = ${'/' + this.layout}
+    	}
+	}
+}

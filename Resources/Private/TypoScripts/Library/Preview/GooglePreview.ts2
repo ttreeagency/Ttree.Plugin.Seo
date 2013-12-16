@@ -1,17 +1,18 @@
-ttreePluginSeoGoogle = TYPO3.Neos:Page
+ttreePluginSeoGoogle = TYPO3.Neos.NodeTypes:Page
 ttreePluginSeoGoogle {
-		head {
-			stylesheets = TYPO3.TypoScript:Template {
-				templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/Preview/GooglePreview.html'
-				sectionName = 'stylesheets'
-			}
+	head {
+		stylesheets = TYPO3.TypoScript:Template {
+			templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/Preview/GooglePreview.html'
+			sectionName = 'stylesheets'
 		}
-        body {
-            templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/Preview/GooglePreview.html'
-            sectionName = 'body'
-            teaser = Ttree.Plugin.Seo:DocumentTeaser {
-            	maximumCharacters = 166
-            }
-            title = Ttree.Plugin.Seo:RawPageTitle
-        }
+	}
+	body {
+		templatePath = 'resource://Ttree.Plugin.Seo/Private/Templates/Preview/GooglePreview.html'
+		sectionName = 'body'
+		teaser = Ttree.Plugin.Seo:DocumentTeaser {
+			maximumCharacters = 166
+		}
+		title = Ttree.Plugin.Seo:RawPageTitle
+		richSnippets = Ttree.Plugin.Seo:RichSnippets
+	}
 }
