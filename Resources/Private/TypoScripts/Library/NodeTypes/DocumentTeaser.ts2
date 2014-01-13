@@ -8,6 +8,6 @@ prototype(Ttree.Plugin.Seo:DocumentTeaser) {
 	maximumCharacters = 600
 	suffix = '...'
 
-	documentNode = ${documentNode}
-	contentNodes = ${q(documentNode).children('main').children(this.nodeTypesFilter)}
+	currentNode = ${documentNode}
+	contentNodes = ${q(this.currentNode).children('main').children(this.nodeTypesFilter)}
 }
