@@ -1,0 +1,51 @@
+#ttree-plugin-seo-accessibility-panel {
+	height: 42px;
+	background-color: #323232;
+	border-bottom: 1px solid #3f3f3f;
+}
+.ttree-plugin-seo-module-header {
+	float: left;
+	line-height: 42px;
+	text-transform: uppercase;
+	padding: 0 1em;
+	color: #FFF;
+	font-weight: bold;
+}
+.ttree-plugin-seo-module-resume {
+	float: right;
+	line-height: 42px;
+	color: #FFF;
+	margin-right: 20px;
+}
+.ttree-plugin-seo-module-resume .resume {
+	display: inline-block;
+	margin-left: 20px;
+
+}
+.ttree-plugin-seo-module-resume .resume.resume-na {
+	color: rgb(255, 135, 0);
+}
+.ttree-plugin-seo-module-resume .resume.resume-fail {
+	color: rgb(201, 21, 28);
+}
+.ttree-plugin-seo-module-resume .resume.resume-pass {
+	color: #00a338;
+}
+.ttree-plugin-seo-module-resume .resume-value {
+	font-weight: bold;
+}
+.ttree-plugin-seo-accessibility {
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+}
+.ttree-plugin-seo-accessibility-fail, .ttree-plugin-seo-accessibility-pass {
+	font-size: 14px !important;
+	color: #FFF !important;
+}
+.ttree-plugin-seo-accessibility-fail {
+	background-color: rgba(201, 21, 28, .6); !important;
+}
+.ttree-plugin-seo-accessibility-pass {
+	background-color: #00a338 !important;
+}

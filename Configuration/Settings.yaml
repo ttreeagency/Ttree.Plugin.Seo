@@ -2,6 +2,12 @@ TYPO3:
   Neos:
     userInterface:
       editPreviewModes:
+        ttreePluginSeoAccessibility:
+          isEditingMode: FALSE
+          isPreviewMode: TRUE
+          typoScriptRenderingPath: 'ttreePluginSeoAccessibility'
+          title: 'Accessibility'
+          position: 80
         ttreePluginSeoGoogle:
           isEditingMode: FALSE
           isPreviewMode: TRUE

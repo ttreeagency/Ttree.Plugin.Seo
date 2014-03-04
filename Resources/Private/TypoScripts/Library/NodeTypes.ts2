@@ -3,3 +3,4 @@ include: NodeTypes/PageTitle.ts2
 include: NodeTypes/MetaTags.ts2
 include: NodeTypes/TwitterCard.ts2
 include: Preview/GooglePreview.ts2
+include: Preview/AccessibilityPreview.ts2
