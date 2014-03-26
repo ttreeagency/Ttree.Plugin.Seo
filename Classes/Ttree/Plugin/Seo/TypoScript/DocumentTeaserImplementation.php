@@ -96,7 +96,7 @@ class DocumentTeaserImplementation extends AbstractTypoScriptObject {
 		foreach ($this->tsValue('contentNodes') as $contentNode) {
 			/** @var NodeInterface $contentNode */
 			foreach ($contentNode->getProperties() as $propertyValue) {
-				if (!is_object($propertyValue) || method_exists($propertyValue, '__toString')) {
+				if (is_string($propertyValue)) {
 					$stringToTruncate .= (string)$propertyValue;
 				}
 				if (Functions::strlen($stringToTruncate) > $maximumCharacters) {
