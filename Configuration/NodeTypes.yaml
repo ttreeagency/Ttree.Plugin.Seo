@@ -55,7 +55,7 @@
           group: openGraphOptions
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
-            placeholder: 'Article'
+            placeholder: 'Choose ...'
             values:
               article:
                 label: 'Article'
