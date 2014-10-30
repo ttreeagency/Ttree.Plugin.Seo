@@ -1,6 +1,19 @@
 'TYPO3.Neos:Document':
   ui:
     inspector:
+      tabs:
+        seo:
+          label: 'SEO'
+          position: 100
+          icon: 'icon-bookmark'
+        twitter:
+          label: 'Twitter'
+          position: 110
+          icon: 'icon-twitter'
+        opengraph:
+          label: 'OpenGraph'
+          position: 120
+          icon: 'icon-facebook'
       groups:
         seo:
           label: 'SEO / Generic'
