@@ -110,12 +110,6 @@
       ui:
         label: 'Facebook Admins'
         inspector:
-    twitter:
-      type: boolean
-      ui:
-        label: 'Enable Twitter Card?'
-        inspector:
-          group: twitterOptions
           group: opengraph
     twitterCard:
       type: string
