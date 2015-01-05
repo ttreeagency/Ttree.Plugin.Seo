@@ -68,6 +68,8 @@
           editorOptions:
             placeholder: 'Choose ...'
             values:
+              '':
+                label: ''
               article:
                 label: 'Article'
               place:
@@ -118,6 +120,8 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
+              '':
+                label: ''
               summary:
                 label: 'Summary'
               summaryLarge:
