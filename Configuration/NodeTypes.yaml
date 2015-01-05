@@ -1,58 +1,69 @@
 'TYPO3.Neos:Document':
   ui:
     inspector:
+      tabs:
+        seo:
+          label: 'SEO'
+          position: 100
+          icon: 'icon-bookmark'
+        twitter:
+          label: 'Twitter'
+          position: 110
+          icon: 'icon-twitter'
+        opengraph:
+          label: 'OpenGraph'
+          position: 120
+          icon: 'icon-facebook'
       groups:
-        metaOptions:
+        seo:
           label: 'SEO / Generic'
-          priority: 2
-        openGraphOptions:
+          tab: seo
+        opengraph:
           label: 'SEO / OpenGraph'
-          priority: 3
-        twitterOptions:
+          tab: opengraph
+        twitter:
           label: 'SEO / Twitter Card'
+          tab: twitter
   properties:
     metaTitle:
       type: string
       ui:
         label: 'Title'
         inspector:
-          group: metaOptions
+          group: seo
     metaDescription:
       type: string
       ui:
         label: 'Description'
         inspector:
-          group: metaOptions
+          group: seo
     metaKeywords:
       type: string
       ui:
         label: 'Keywords'
         inspector:
-          group: metaOptions
+          group: seo
     metaAuthor:
       type: string
       ui:
         label: 'Author'
         inspector:
-          group: metaOptions
+          group: seo
     canonicalReference:
       type: 'reference'
       ui:
         label: 'Canonical Reference'
         inspector:
-          group: metaOptions
-    opengraph:
-      type: boolean
-      ui:
-        label: 'Enable OpenGraph?'
-        inspector:
-          group: openGraphOptions
+          group: seo
+          editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
+          editorOptions:
+            assets: FALSE
     opengraphType:
       type: string
       ui:
         label: 'Type'
         inspector:
-          group: openGraphOptions
+          group: opengraph
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Choose ...'
@@ -78,38 +89,32 @@
       ui:
         label: 'Title'
         inspector:
-          group: openGraphOptions
+          group: opengraph
     opengraphDescription:
       type: string
       ui:
         label: 'Description'
         inspector:
-          group: openGraphOptions
+          group: opengraph
     opengraphImage:
       type: TYPO3\Media\Domain\Model\ImageVariant
       ui:
         label: 'Image'
         inspector:
-          group: openGraphOptions
+          group: opengraph
     facebookAdmins:
       type: string
       ui:
         label: 'Facebook Admins'
         inspector:
-          group: openGraphOptions
-    twitter:
-      type: boolean
-      ui:
-        label: 'Enable Twitter Card?'
-        inspector:
-          group: twitterOptions
+          group: opengraph
     twitterCard:
       type: string
       defaultValue: 'summary'
       ui:
         label: 'Card Type'
         inspector:
-          group: twitterOptions
+          group: twitter
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
@@ -134,25 +139,25 @@
       ui:
         label: 'Title'
         inspector:
-          group: twitterOptions
+          group: twitter
     twitterDescription:
       type: string
       ui:
         label: 'Description'
         inspector:
-          group: twitterOptions
+          group: twitter
     twitterImage:
       type: TYPO3\Media\Domain\Model\ImageVariant
       ui:
         label: 'Image'
         inspector:
-          group: twitterOptions
+          group: twitter
     twitterSite:
       type: string
       ui:
         label: 'Site'
         inspector:
-          group: twitterOptions
+          group: twitter
           editorOptions:
             placeholder: '@ttreeagency'
     twitterCreator:
@@ -160,6 +165,6 @@
       ui:
         label: 'Creator'
         inspector:
-          group: twitterOptions
+          group: twitter
           editorOptions:
             placeholder: '@dfeyer'

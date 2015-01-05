@@ -17,6 +17,7 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 		}
 
 		canonicalReference = ${q(node).property('canonicalReference')}
+		canonicalReference.@process.convertUris = TYPO3.Neos:ConvertUris
 
 		description = ${this.metaDescription ? this.metaDescription : this.documentTeaser}
 		description.@process.event = ${q(node).is('[instanceof Ttree.Plugin.MicroEvent:Event]') ? this.documentTeaser : value}
