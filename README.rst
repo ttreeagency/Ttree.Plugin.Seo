@@ -15,6 +15,24 @@ Features
 - OpenGraph
 - Twitter Card
 
+Installation
+============
+Add this to your composer.json and run `composer update`:
+```
+{
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/ttreeagency/Ttree.Plugin.Seo.git"
+        }
+    ],
+    "require": {
+        "ttree/plugin-seo": "dev-master"
+    },
+}
+
+```
+
 How to use the plugin ?
 =======================
 
