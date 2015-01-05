@@ -25,7 +25,6 @@ prototype(Ttree.Plugin.Seo:MetaTags) {
 
 		keywords = ${q(node).property('metaKeywords') ? q(node).property('metaKeywords') : this.defaultKeywords}
 
-		opengraph = ${q(node).property('opengraph') ? 1 : 0}
 		opengraphTitle = ${q(node).property('opengraphTitle') ? q(node).property('opengraphTitle') : this.title}
 		opengraphType = ${q(node).property('opengraphType') ? q(node).property('opengraphType') : ''}
 		opengraphImage = ${q(node).property('opengraphImage') ? q(node).property('opengraphImage') : ''}

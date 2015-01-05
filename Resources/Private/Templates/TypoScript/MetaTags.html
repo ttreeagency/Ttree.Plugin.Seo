@@ -2,12 +2,10 @@
 		<f:if condition="{author}"><meta name="author" content="{author}"/></f:if>
 		<f:if condition="{description}"><meta name="description" content="{description}"/></f:if>
 		<f:if condition="{keywords}"><meta name="keywords" content="{keywords}"/></f:if>
-		<f:if condition="{opengraph}">
 		<f:if condition="{opengraphTitle}"><meta property="og:title" content="{opengraphTitle}"/></f:if>
 		<meta property="og:url" content="{neos:uri.node(node:node,absolute:1)}{opengraphUrlSuffix}"/>
 		<f:if condition="{opengraphDescription}"><meta property="og:description" content="{opengraphDescription}"/></f:if>
 		<f:if condition="{opengraphType}"><meta property="og:type" content="{opengraphType}"/></f:if>
 		<f:if condition="{opengraphImage}"><meta property="og:image" content="{m:uri.image(image:opengraphImage,maximumWidth:imageWidth,maximumHeight:imageHeight,allowCropping:1)}"/></f:if>
-		</f:if>
 		<f:if condition="{facebookAdmins}"><meta property="fb:admins" content="{facebookAdmins}"/></f:if>
 		<f:if condition="{canonicalReference}"><link rel="canonical" href="{neos:uri.node(node:canonicalReference,absolute:1)}" /></f:if>
