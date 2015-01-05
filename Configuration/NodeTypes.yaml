@@ -41,7 +41,7 @@
         label: 'Canonical Reference'
         inspector:
           group: metaOptions
-    twitter:
+    opengraph:
       type: boolean
       ui:
         label: 'Enable OpenGraph?'
