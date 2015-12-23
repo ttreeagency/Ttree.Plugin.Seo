@@ -99,7 +99,7 @@
         inspector:
           group: opengraph
     opengraphImage:
-      type: TYPO3\Media\Domain\Model\ImageVariant
+      type: TYPO3\Media\Domain\Model\ImageInterface
       ui:
         label: 'Image'
         inspector:
@@ -151,7 +151,7 @@
         inspector:
           group: twitter
     twitterImage:
-      type: TYPO3\Media\Domain\Model\ImageVariant
+      type: TYPO3\Media\Domain\Model\ImageInterface
       ui:
         label: 'Image'
         inspector:
