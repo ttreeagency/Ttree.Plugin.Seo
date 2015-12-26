@@ -112,13 +112,13 @@
           group: opengraph
     twitterCard:
       type: string
-      defaultValue: 'summary'
       ui:
         label: 'Card Type'
         inspector:
           group: twitter
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
+            placeholder: 'Choose ...'
             values:
               '':
                 label: ''
