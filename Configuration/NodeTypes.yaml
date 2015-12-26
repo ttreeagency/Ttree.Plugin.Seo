@@ -1,4 +1,4 @@
-'TYPO3.Neos:Document':
+'TYPO3.Neos.NodeTypes:Page':
   ui:
     inspector:
       tabs:
