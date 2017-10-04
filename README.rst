@@ -1,6 +1,8 @@
 A SEO plugin for TYPO3 Neos
 ===========================
 
+**This package is NOT MAINTAINED ANYMORE**.
+
 This package for the Content Management System TYPO3 Neos offer some nice feature for search engine optimizations (SEO).
 
 The logic of this package is done in TypoScript2, so you can customize the rendering to fit your needs.
