@@ -15,10 +15,33 @@ Features
 - OpenGraph
 - Twitter Card
 
+Installation
+============
+Add this to your composer.json and run `composer update`::
+
+	{
+	    "repositories": [
+	        {
+	            "type": "git",
+	            "url": "https://github.com/ttreeagency/Ttree.Plugin.Seo.git"
+	        }
+	    ],
+	    "require": {
+	        "ttree/plugin-seo": "dev-master"
+	    },
+	}
+
+Configuration
+=============
+
+Include the TypoScript file NodeTypes.ts2 in your site's TypoScript::
+
+	include: resource://Ttree.Plugin.Seo/Private/TypoScripts/Library/NodeTypes.ts2
+
 How to use the plugin ?
 =======================
 
-You need to install the package with composer and use the TS2 object 'Ttree.Plugin.Seo:MetaTags' to generate the HTML meta tags.
+Use the TS2 object 'Ttree.Plugin.Seo:MetaTags' to generate the HTML meta tags.
 
 How to generate your page title ?
 =================================
